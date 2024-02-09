@@ -180,8 +180,12 @@ const Header = () => {
       <div className="hidden px-4 lg:px-20 lg:inline-block z-50 relative  backdrop-blur-md overflow-hidden	w-full xl:h-20 h-16   ">
         <div className=" flex justify-between items-center  w-full h-full">
           <div className=" flex items-center  h-full">
-            <Link className="cursor-pointer flex items-center" href="/">
-              <img className="w-12" src="/image-removebg-preview.png" alt="" />
+            <Link
+              className="cursor-pointer text-[1.8rem] font-semibold"
+              href="/"
+            >
+              ProfilePro
+              <span className="text-[#0000ff] font-extrabold text-3xl">.</span>
             </Link>
           </div>
           <div className=" flex  items-center md:gap-x-7 h-full ">

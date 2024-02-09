@@ -4,7 +4,7 @@ import Lines from "./Lines";
 const Hero = () => {
   return (
     <div className="relative  cont py-10">
-      <div className="flex flex-col md:flex-row-reverse justify-between">
+      <div className="flex flex-col lg:flex-row-reverse justify-between">
         <div className="p-7 lg:p-0">
           <img
             className="object-contain"
@@ -13,13 +13,13 @@ const Hero = () => {
           />
         </div>
         <div className="flex justify-center  flex-col items-center lg:items-start">
-          <h1 className=" text-center  font-[600] leading-8 lg:leading-[70px] lg:text-[4rem] text-[2.1rem] ">
+          <h1 className=" text-center  font-[600] leading-8 lg:leading-[70px] md:text-[4rem] text-[2.1rem] ">
             Develop{" "}
           </h1>
-          <h1 className="text-[#0000ff] font-[600] text-center text-[2rem] lg:pl-20 lg:text-[4rem]">
+          <h1 className="text-[#0000ff] font-[600] text-center text-[2rem] lg:pl-20 md:text-[4rem]">
             cutting-edge
           </h1>
-          <h1 className="font-[600] leading-8 lg:leading-[70px] text-center text-[2.1rem] lg:text-[4rem]">
+          <h1 className="font-[600] leading-8 lg:leading-[70px] text-center text-[2.1rem] md:text-[4rem]">
             tech websites.
           </h1>
           <p className="py-10 text-[1.3rem] lg:text-[1.5rem] text-center lg:text-start text-gray-400 font-medium">
