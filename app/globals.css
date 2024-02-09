@@ -2,32 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: #000;
+  color: whitesmoke;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.lines{
+ z-index: 1;
+ position: fixed;
+ top: 0%;
+ bottom: 0%;
+ left: 0%;
+ right:  0%;
+}
+.abslines{
+grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+height: 100%;
+display: grid;
+}
+.linefull{
+  grid-area: span/span/span/span;
+  width: 1px;
+  height: 100%;
+  background-image: linear-gradient(to bottom, black 10%, blue 50%, black 90%);
+  justify-self: center;
+}
+.linefull20{
+background-image: linear-gradient(to bottom, var(--black) 30%, var(--blue-main) 50%, var(--black) 70%);
+justify-self: center;
+}
+.linefull{
+transform: translate3d(0px, 29.0486%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+transform-style: preserve-3d;
+will-change: transform;
+justify-self: center;
 }
