@@ -20,6 +20,9 @@ body {
   }
 }
 
+.cont{
+  @apply mx-5 md:mx-20 lg:mx-40 xl:mx-48
+}
 .lines{
  z-index: 1;
  position: fixed;
