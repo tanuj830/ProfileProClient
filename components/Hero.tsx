@@ -22,9 +22,9 @@ const Hero = () => {
           <h1 className="font-[600] leading-8 lg:leading-[70px] text-center text-[2.1rem] md:text-[4rem]">
             tech websites.
           </h1>
-          <p className="py-10 text-[1.3rem] lg:text-[1.5rem] text-center lg:text-start text-gray-400 font-medium">
+          <p className="py-10 text-[1.3rem] lg:text-[1.5rem] text-center lg:text-start text-gray-40s font-medium">
             Kickstart your startup's success with the Startub <br />
-            Webflow template.
+            Webflow template.s
           </p>
           <button className="px-10 py-5 font-medium w-fit bg-[#0000ff] rounded-full lg:mt-10">
             Get in Touch
