@@ -52,7 +52,7 @@ const WhyUs = () => {
                     <Icon className="text-[4rem] text-[#0000ff] text-center w-full" />
                     <h6 className="text-white font-medium text-[1.5rem] text-center py-5">
                       {rs.title}
-                    </h6
+                    </h6>
                     <p className="text-gray-400 font-medium text-[1rem] text-center">
                       {rs.disp}
                     </p>
