@@ -4,6 +4,7 @@ import Hero from "../components/Hero";
 import Loader from "@/components/Loader";
 import React from "react";
 import Navbar from "../components/Navbar";
+import WhyUs from "@/components/WhyUs";
 export default function Home() {
   const [showLoader, setShowLoader] = React.useState(true);
   setTimeout(() => {
@@ -14,6 +15,7 @@ export default function Home() {
       {showLoader ? <Loader /> : null}
       <Navbar />
       <Hero />
+      <WhyUs />
     </div>
   );
 }

@@ -14,17 +14,17 @@ const Hero = () => {
         </div>
         <div className="flex justify-center  flex-col items-center lg:items-start">
           <h1 className=" text-center  font-[600] leading-8 lg:leading-[70px] md:text-[4rem] text-[2.1rem] ">
-            Develop{" "}
+            Empower{" "}
           </h1>
           <h1 className="text-[#0000ff] font-[600] text-center text-[2rem] lg:pl-20 md:text-[4rem]">
-            cutting-edge
+            Your Carrer
           </h1>
           <h1 className="font-[600] leading-8 lg:leading-[70px] text-center text-[2.1rem] md:text-[4rem]">
-            tech websites.
+            with ProfilePro.
           </h1>
           <p className="py-10 text-[1.3rem] lg:text-[1.5rem] text-center lg:text-start text-gray-400 font-medium">
-            Kickstart your startup's success with the Startub <br />
-            Webflow template.
+            <span className="text-white">Build</span> ATS-Friendly Resumes, Get
+            Insights, and Code Together!
           </p>
           <button className="px-10 py-5 font-medium w-fit bg-[#0000ff] rounded-full lg:mt-10">
             Get in Touch
