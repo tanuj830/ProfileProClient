@@ -4,7 +4,7 @@ import { TiArrowRightThick } from "react-icons/ti";
 
 const Contact = () => {
   return (
-    <div className="h-screen w-[40%] cont">
+    <div className="h-full lg:w-[40%] w-full cont">
       <div className="flex justify-center h-full flex-col gap-5">
         <div>
           <h2 className="text-[1.4rem] lg:text-[1.8rem] font-medium">
