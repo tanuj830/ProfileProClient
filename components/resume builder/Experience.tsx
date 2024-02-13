@@ -16,16 +16,18 @@ const Contact = () => {
         </div>
         <div className="">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-            <Input label="Fullname" placeholder="Tanuj" />
-            <Input label="Address" placeholder="Enter a Location" />
-            <Input label="City" placeholder="Dehradun" />
-            <Input label="Postal Code" placeholder="248002" />
-            <Input label="Phone" placeholder="987-654-3210" />
-            <Input label="Email" placeholder="e.g. mail@example.com" />
-            <Input label="Postal Code" placeholder="248002" />
+            <Input label="Job title" placeholder="ceo" />
+            <Input label="employer" placeholder="Google" />
+            <Input label="start date" placeholder="Enter Date" />
+            <Input label="end date" placeholder="Enter Date" />
+            <Input label="city" placeholder="Dehradun" />
+            <Input
+              label="Description"
+              placeholder="Write your work experience"
+            />
           </div>
           <button className="px-10 py-5 font-medium w-fit bg-[#0000ff] rounded-full lg:mt-10 flex items-center justify-center gap-2">
-            <span>Next to Experience</span>
+            <span>Next to Education</span>
             <span className="text-2xl">
               <TiArrowRightThick />
             </span>
