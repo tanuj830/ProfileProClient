@@ -6,7 +6,7 @@ const page = () => {
   return (
     <div className="flex flex-col gap-20">
       <Contact />
-      <Experience />
+      <Experience 
     </div>
   );
 };
