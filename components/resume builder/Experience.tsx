@@ -1,8 +1,10 @@
+"use Client";
 import React from "react";
 import Input from "./Input";
 import { TiArrowRightThick } from "react-icons/ti";
 
 const Contact = () => {
+  const [name, setName] = React.useState("");
   return (
     <div className="h-full lg:w-[40%] w-full cont">
       <div className="flex justify-center h-full flex-col gap-5">
@@ -16,12 +18,21 @@ const Contact = () => {
         </div>
         <div className="">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-            <Input label="Job title" placeholder="ceo" />
-            <Input label="employer" placeholder="Google" />
-            <Input label="start date" placeholder="Enter Date" />
-            <Input label="end date" placeholder="Enter Date" />
-            <Input label="city" placeholder="Dehradun" />
+            <Input setText={setName} label="Job title" placeholder="ceo" />
+            <Input setText={setName} label="employer" placeholder="Google" />
             <Input
+              setText={setName}
+              label="start date"
+              placeholder="Enter Date"
+            />
+            <Input
+              setText={setName}
+              label="end date"
+              placeholder="Enter Date"
+            />
+            <Input setText={setName} label="city" placeholder="Dehradun" />
+            <Input
+              setText={setName}
               label="Description"
               placeholder="Write your work experience"
             />
