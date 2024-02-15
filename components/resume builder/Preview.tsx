@@ -57,7 +57,7 @@ const Preview: React.FC<PreviewProps> = ({
                 <span className="text-xs">{educationPageData.year}</span>
                 <span className="text-xs">{educationPageData.degree}</span>
                 <span className="text-xs">{educationPageData.school}</span>
-                <span className="text-xs">{educationPageData.grade}</span>
+                <span className="text-xs">{educationPageData.}</span>
               </div>
             </div>
           </>
