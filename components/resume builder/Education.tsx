@@ -4,13 +4,13 @@ import Input from "./Input";
 import { TiArrowRightThick } from "react-icons/ti";
 
 interface EducationProps {
-  setContactPageCompleted: Function;
-  setContactPageData: Function;
+  setEducationPageCompleted: Function;
+  setEducationPageData: Function;
 }
 
 const Education: React.FC<EducationProps> = ({
-  setContactPageCompleted,
-  setContactPageData,
+  setEducationPageCompleted,
+  setEducationPageData,
 }) => {
   const [year, setYear] = React.useState("");
   const [degree, setDegree] = React.useState("");
@@ -33,14 +33,14 @@ const Education: React.FC<EducationProps> = ({
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              setContactPageCompleted(true);
+              setEducationPageCompleted(true);
               let data = {
                 year,
                 degree,
                 school,
                 grade,
               };
-              setContactPageData(data);
+              setEducationPageData(data);
               console.log(data);
             }}
           >
