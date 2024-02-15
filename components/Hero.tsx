@@ -1,5 +1,6 @@
 import React from "react";
 import Lines from "./Lines";
+import ConvertToPDF from "./resume builder/ConvertToPDF";
 
 const Hero = () => {
   return (

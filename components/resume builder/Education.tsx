@@ -3,22 +3,19 @@ import React from "react";
 import Input from "./Input";
 import { TiArrowRightThick } from "react-icons/ti";
 
-interface ContactProps {
+interface EducationProps {
   setContactPageCompleted: Function;
   setContactPageData: Function;
 }
 
-const Contact: React.FC<ContactProps> = ({
+const Education: React.FC<EducationProps> = ({
   setContactPageCompleted,
   setContactPageData,
 }) => {
-  const [name, setName] = React.useState("");
-  const [address, setAddress] = React.useState("");
-  const [city, setCity] = React.useState("");
-  const [postalcode, setPostalcode] = React.useState("");
-  const [phone, setPhone] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [linkedin, setLinkedin] = React.useState("");
+  const [year, setYear] = React.useState("");
+  const [degree, setDegree] = React.useState("");
+  const [school, setSchool] = React.useState("");
+  const [grade, setGrade] = React.useState("");
 
   return (
     <div className="h-full  w-full p-10">
@@ -38,45 +35,31 @@ const Contact: React.FC<ContactProps> = ({
               e.preventDefault();
               setContactPageCompleted(true);
               let data = {
-                name,
-                address,
-                city,
-                postalcode,
-                phone,
-                email,
-                linkedin,
+                year,
+                degree,
+                school,
+                grade,
               };
               setContactPageData(data);
               console.log(data);
             }}
           >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-              <Input label="Fullname" placeholder="Tanuj" setText={setName} />
               <Input
-                label="Address"
-                placeholder="Enter a Location"
-                setText={setAddress}
+                label="Start and End Year"
+                placeholder="2020-2024"
+                setText={setYear}
               />
-              <Input label="City" placeholder="Dehradun" setText={setCity} />
+              <Input label="Degree" placeholder="B-tech" setText={setDegree} />
               <Input
-                label="Postal Code"
-                placeholder="248002"
-                setText={setPostalcode}
-              />
-              <Input
-                label="Phone"
-                placeholder="987-654-3210"
-                setText={setPhone}
+                label="Institute"
+                placeholder="Graphic Era Hill University"
+                setText={setSchool}
               />
               <Input
-                label="Email"
-                placeholder="e.g. mail@example.com"
-                setText={setEmail}
-              />
-              <Input
-                label="Linked-in"
-                placeholder="Your Linked-in url"
-                setText={setLinkedin}
+                label="CGPA/ Marks"
+                placeholder="8.1/ 10"
+                setText={setGrade}
               />
             </div>
             <button
@@ -95,4 +78,4 @@ const Contact: React.FC<ContactProps> = ({
   );
 };
 
-export default Contact;
+export default Education;
