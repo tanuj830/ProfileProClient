@@ -33,10 +33,12 @@ const page = () => {
     React.useState(false);
   const [experiencePageActive, setExperiencePageActive] = React.useState(false);
   const [experiencePageData, setExperiencePageData] = React.useState({
-    year: "2020-2024",
-    degree: "Bachelors",
-    school: "Graphic Era University",
-    grade: "8.1/10",
+    title: "CEO",
+    employer: "ProfilePro.",
+    startDate: "Jan 2024",
+    endDate: "Present",
+    city: "Dehradun",
+    disp: "Building ProfilePro.",
   });
   const buttons = [
     {
