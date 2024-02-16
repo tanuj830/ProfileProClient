@@ -83,10 +83,10 @@ const Contact: React.FC<ContactProps> = ({
               type="submit"
               className="px-10 py-5 mt-5 font-medium w-fit bg-[#0000ff] rounded-full lg:mt-10 flex items-center justify-center gap-2"
             >
-              <span>Next to Experience</span>
-              <span className="text-2xl">
+              <span>Compile</span>
+              {/* <span className="text-2xl">
                 <TiArrowRightThick />
-              </span>
+              </span> */}
             </button>
           </form>
         </div>

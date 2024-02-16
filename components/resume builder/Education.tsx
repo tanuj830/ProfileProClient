@@ -22,11 +22,11 @@ const Education: React.FC<EducationProps> = ({
       <div className="flex justify-center h-full flex-col gap-5">
         <div>
           <h2 className="text-[1.4rem] lg:text-[1.8rem] font-medium">
-            Please enter your <span className="text-[#0000ff]"> contact </span>{" "}
-            info
+            Please enter your{" "}
+            <span className="text-[#0000ff]"> Education </span> info
           </h2>
           <small className="text-md text-gray-400 leading-10">
-            It allows employers to see how they contact you.
+            It allows employers to see how you performed in your acadmeics.
           </small>
         </div>
         <div className="">
@@ -66,10 +66,10 @@ const Education: React.FC<EducationProps> = ({
               type="submit"
               className="px-10 py-5 mt-5 font-medium w-fit bg-[#0000ff] rounded-full lg:mt-10 flex items-center justify-center gap-2"
             >
-              <span>Next to Experience</span>
-              <span className="text-2xl">
+              <span>Compile</span>
+              {/* <span className="text-2xl">
                 <TiArrowRightThick />
-              </span>
+              </span> */}
             </button>
           </form>
         </div>

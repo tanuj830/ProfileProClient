@@ -4,7 +4,7 @@ import { RiLoaderLine } from "react-icons/ri";
 
 const Loader = () => {
   return (
-    <div className="absolute h-screen w-screen bg-black z-50">
+    <div className="fixed h-screen w-screen  bg-black z-50">
       <div className="h-full w-full flex justify-center items-center">
         <div className="flex justify-center items-center gap-2">
           <RiLoaderLine className="animate-spin text-3xl font-semibold duration-1000 transition-all" />

@@ -18,15 +18,24 @@ interface PreviewProps {
     school: string;
     grade: string;
   };
+  experiencePageData: {
+    title: string;
+    employer: string;
+    startDate: string;
+    endDate: string;
+    city: string;
+    disp: string;
+  };
 }
 
 const Preview: React.FC<PreviewProps> = ({
   contactPageData,
   educationPageData,
+  experiencePageData,
 }) => {
   const { toPDF, targetRef } = usePDF({ filename: "resume.pdf" });
   return (
-    <div className="w-full h-full relative">
+    <div className="w-full h-full relative ">
       <div ref={targetRef} className="bg-white text-black w-full h-screen p-5">
         {Object.keys(contactPageData) ? (
           <>
@@ -56,6 +65,22 @@ const Preview: React.FC<PreviewProps> = ({
               <div className="flex items-center justify-between">
                 <span className="text-xs">{educationPageData.year}</span>
                 <span className="text-xs">{educationPageData.degree}</span>
+                <span className="text-xs">{educationPageData.school}</span>
+                <span className="text-xs">{educationPageData.grade}</span>
+              </div>
+            </div>
+            {/* Experience preview */}
+            <div>
+              <div className="mt-2">
+                <h2 className="bg-gray-200 py-1 rounded-sm text-xs w-full text-center font-bold uppercase">
+                  Experience
+                </h2>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-xs">
+                  {experiencePageData.title}
+                  <span className="text-xs">{experiencePageData.employer}</span>
+                </span>
                 <span className="text-xs">{educationPageData.school}</span>
                 <span className="text-xs">{educationPageData.grade}</span>
               </div>

@@ -8,6 +8,7 @@ import React from "react";
 const page = () => {
   // 1: Contact Details
   const [contactPageCompleted, setContactPageCompleted] = React.useState(false);
+  const [contactPageActive, setContactPageActive] = React.useState(true);
   const [contactPageData, setContactPageData] = React.useState({
     name: "Tanuj Bhatt",
     address: "Sunshine Enclave, Clement Town",
@@ -20,28 +21,103 @@ const page = () => {
   // 2: Education Details
   const [educationPageCompleted, setEducationPageCompleted] =
     React.useState(false);
+  const [educationPageActive, setEducationPageActive] = React.useState(false);
   const [educationPageData, setEducationPageData] = React.useState({
     year: "2020-2024",
     degree: "Bachelors",
     school: "Graphic Era University",
     grade: "8.1/10",
   });
+  // 3: Experience Details
+  const [experiencePageCompleted, setExperiencePageCompleted] =
+    React.useState(false);
+  const [experiencePageActive, setExperiencePageActive] = React.useState(false);
+  const [experiencePageData, setExperiencePageData] = React.useState({
+    year: "2020-2024",
+    degree: "Bachelors",
+    school: "Graphic Era University",
+    grade: "8.1/10",
+  });
+  const buttons = [
+    {
+      id: 1,
+      text: "Contact",
+    },
+    {
+      id: 2,
+      text: "Education",
+    },
+    {
+      id: 3,
+      text: "Experiences",
+    },
+    {
+      id: 4,
+      text: "Projects",
+    },
+    {
+      id: 5,
+      text: "Achievements",
+    },
+  ];
+
+  // Function for showing resume component on the basis of id
+  const handleclick = (id: Number) => {
+    if (id === 1) {
+      setContactPageActive(true);
+      setEducationPageActive(false);
+      setExperiencePageActive(false);
+    } else if (id === 2) {
+      setContactPageActive(false);
+      setEducationPageActive(true);
+      setExperiencePageActive(false);
+    } else if (id === 3) {
+      setContactPageActive(false);
+      setEducationPageActive(false);
+      setExperiencePageActive(true);
+    }
+  };
   return (
     <div className="flex flex-col-reverse lg:flex-row gap-5">
-      <div className="flex  lg:flex-col w-full lg:w-[50%]">
-        {/* <Contact
-          setContactPageCompleted={setContactPageCompleted}
-          setContactPageData={setContactPageData}
-        /> */}
-        <Education
-          setEducationPageCompleted={setEducationPageCompleted}
-          setEducationPageData={setEducationPageData}
-        />
+      <div className="flex  flex-col w-full lg:w-[50%]">
+        <div className="flex justify-evenly mt-5 ">
+          <div className="border-b h-2 w-full absolute  border-gray-700 -z-10" />
+          {buttons.map((btn) => (
+            <div key={btn.id} className="flex flex-col items-center ">
+              <div className="rounded-full h-3 w-3 bg-[#0000ff]" />
+              <button
+                className="text-xs py-1 md:px-4 bg-[#1A1A1C] rounded-3xl"
+                onClick={() => handleclick(btn.id)}
+              >
+                {btn.text}
+              </button>
+            </div>
+          ))}
+        </div>
+        {contactPageActive ? (
+          <Contact
+            setContactPageCompleted={setContactPageCompleted}
+            setContactPageData={setContactPageData}
+          />
+        ) : null}
+        {educationPageActive ? (
+          <Education
+            setEducationPageCompleted={setEducationPageCompleted}
+            setEducationPageData={setEducationPageData}
+          />
+        ) : null}
+        {experiencePageActive ? (
+          <Experience
+            setExperiencePageCompleted={setExperiencePageCompleted}
+            setExperiencePageData={setExperiencePageData}
+          />
+        ) : null}
       </div>
       <div className="w-full lg:w-[50%]">
         <Preview
           contactPageData={contactPageData}
           educationPageData={educationPageData}
+          experiencePageData={experiencePageData}
         />
       </div>
     </div>
