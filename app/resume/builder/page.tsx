@@ -1,6 +1,6 @@
 "use client";
 import Contact from "@/components/resume builder/Contact";
-import Education from "@/components/resume builder/Education";
+import Education from "@/components/resume builder/education/Education";
 import Experience from "@/components/resume builder/Experience";
 import Preview from "@/components/resume builder/Preview";
 import React from "react";
@@ -22,23 +22,18 @@ const page = () => {
   const [educationPageCompleted, setEducationPageCompleted] =
     React.useState(false);
   const [educationPageActive, setEducationPageActive] = React.useState(false);
-  const [educationPageData, setEducationPageData] = React.useState({
-    year: "2020-2024",
-    degree: "Bachelors",
-    school: "Graphic Era University",
-    grade: "8.1/10",
-  });
+  const [educationPageData, setEducationPageData] = React.useState([] as any);
   // 3: Experience Details
   const [experiencePageCompleted, setExperiencePageCompleted] =
     React.useState(false);
   const [experiencePageActive, setExperiencePageActive] = React.useState(false);
   const [experiencePageData, setExperiencePageData] = React.useState({
-    title: "CEO",
+    title: "Founder",
     employer: "ProfilePro.",
     startDate: "Jan 2024",
     endDate: "Present",
     city: "Dehradun",
-    disp: "Building ProfilePro.",
+    disp: "Building ProfilePro.: A web application which will help users to increase there productivity by 20 times. ",
   });
   const buttons = [
     {
@@ -106,6 +101,7 @@ const page = () => {
           <Education
             setEducationPageCompleted={setEducationPageCompleted}
             setEducationPageData={setEducationPageData}
+            educationPageData={educationPageData}
           />
         ) : null}
         {experiencePageActive ? (

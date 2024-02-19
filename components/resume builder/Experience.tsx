@@ -70,13 +70,16 @@ const Contact: React.FC<ExperienceProps> = ({
                 placeholder="Write your work experience"
               />
             </div>
-          </form>
-          <button className="px-10 py-5 font-medium w-fit bg-[#0000ff] rounded-full lg:mt-10 flex items-center justify-center gap-2">
-            <span>Compile</span>
-            {/* <span className="text-2xl">
+            <button
+              type="submit"
+              className="px-10 py-5 font-medium w-fit bg-[#0000ff] rounded-full lg:mt-10 flex items-center justify-center gap-2"
+            >
+              <span>Compile</span>
+              {/* <span className="text-2xl">
               <TiArrowRightThick />
             </span> */}
-          </button>
+            </button>
+          </form>
         </div>
       </div>
     </div>

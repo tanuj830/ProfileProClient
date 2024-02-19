@@ -12,12 +12,12 @@ interface PreviewProps {
     email: string;
     linkedin: string;
   };
-  educationPageData: {
+  educationPageData: Array<{
     year: string;
     degree: string;
     school: string;
     grade: string;
-  };
+  }>;
   experiencePageData: {
     title: string;
     employer: string;
@@ -34,6 +34,7 @@ const Preview: React.FC<PreviewProps> = ({
   experiencePageData,
 }) => {
   const { toPDF, targetRef } = usePDF({ filename: "resume.pdf" });
+  console.log(educationPageData);
   return (
     <div className="w-full h-full relative ">
       <div ref={targetRef} className="bg-white text-black w-full h-screen p-5">
@@ -44,8 +45,8 @@ const Preview: React.FC<PreviewProps> = ({
               <div className="flex flex-col ">
                 <span className="text-md">{contactPageData.name}</span>
                 <div>
-                  <span className="text-xs">{contactPageData.address}</span>
-                  <span className="text-xs">{contactPageData.city}</span>
+                  <span className="text-xs">{contactPageData.address}, </span>
+                  <span className="text-xs">{contactPageData.city}, </span>
                   <span className="text-xs">{contactPageData.postalcode}</span>
                 </div>
                 <span className="text-xs">{contactPageData.phone}</span>
@@ -62,12 +63,16 @@ const Preview: React.FC<PreviewProps> = ({
                   Education
                 </h2>
               </div>
-              <div className="flex items-center justify-between">
-                <span className="text-xs">{educationPageData.year}</span>
-                <span className="text-xs">{educationPageData.degree}</span>
-                <span className="text-xs">{educationPageData.school}</span>
-                <span className="text-xs">{educationPageData.grade}</span>
-              </div>
+              {educationPageData.length > 0
+                ? educationPageData.map((data) => (
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs">{data.year}</span>
+                      <span className="text-xs">{data.degree}</span>
+                      <span className="text-xs">{data.school}</span>
+                      <span className="text-xs">{data.grade}</span>
+                    </div>
+                  ))
+                : null}
             </div>
             {/* Experience preview */}
             <div>
@@ -76,13 +81,27 @@ const Preview: React.FC<PreviewProps> = ({
                   Experience
                 </h2>
               </div>
-              <div className="flex items-center justify-between">
-                <span className="text-xs">
-                  {experiencePageData.title}
-                  <span className="text-xs">{experiencePageData.employer}</span>
-                </span>
-                <span className="text-xs">{educationPageData.school}</span>
-                <span className="text-xs">{educationPageData.grade}</span>
+              <div className="">
+                <div className="text-xs flex justify-between">
+                  <span className="font-semibold text-sm">
+                    {experiencePageData.employer}
+                  </span>
+                  <span className="font-semibold text-sm">
+                    {experiencePageData.startDate}
+                    {" - "}
+                    {experiencePageData.endDate}
+                  </span>
+                </div>
+                <div className="text-xs flex justify-between">
+                  <span className="italic text-xs">
+                    {experiencePageData.title}
+                  </span>
+                  <span className="italic text-xs">
+                    {experiencePageData.city}
+                  </span>
+                </div>
+
+                <span className="text-xs">{experiencePageData.disp}</span>
               </div>
             </div>
           </>

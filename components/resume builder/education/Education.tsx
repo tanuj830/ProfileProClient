@@ -1,21 +1,38 @@
 "use client";
 import React from "react";
-import Input from "./Input";
+import Input from "../Input";
 import { TiArrowRightThick } from "react-icons/ti";
-
+import { IoAdd } from "react-icons/io5";
+import PreviousAddedItems from "./PreviousAddedItems";
 interface EducationProps {
   setEducationPageCompleted: Function;
   setEducationPageData: Function;
+  educationPageData: Array<any>;
 }
 
 const Education: React.FC<EducationProps> = ({
   setEducationPageCompleted,
   setEducationPageData,
+  educationPageData,
 }) => {
   const [year, setYear] = React.useState("");
   const [degree, setDegree] = React.useState("");
   const [school, setSchool] = React.useState("");
   const [grade, setGrade] = React.useState("");
+  const [educationInfo, setEducationInfo] = React.useState({});
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    setEducationPageCompleted(true);
+    let data = {
+      year,
+      degree,
+      school,
+      grade,
+    };
+    setEducationPageData([...educationPageData, data]);
+  };
+  const handleAddEducation = () => {};
 
   return (
     <div className="h-full  w-full p-10">
@@ -29,21 +46,11 @@ const Education: React.FC<EducationProps> = ({
             It allows employers to see how you performed in your acadmeics.
           </small>
         </div>
+        <div>
+          <PreviousAddedItems data={educationPageData} />
+        </div>
         <div className="">
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              setEducationPageCompleted(true);
-              let data = {
-                year,
-                degree,
-                school,
-                grade,
-              };
-              setEducationPageData(data);
-              console.log(data);
-            }}
-          >
+          <form onSubmit={(e) => handleSubmit(e)}>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
               <Input
                 label="Start and End Year"
@@ -62,15 +69,21 @@ const Education: React.FC<EducationProps> = ({
                 setText={setGrade}
               />
             </div>
-            <button
-              type="submit"
-              className="px-10 py-5 mt-5 font-medium w-fit bg-[#0000ff] rounded-full lg:mt-10 flex items-center justify-center gap-2"
-            >
-              <span>Compile</span>
-              {/* <span className="text-2xl">
+            <div className="flex items-center gap-5">
+              <button
+                type="submit"
+                onClick={handleAddEducation}
+                className="px-10 py-5 mt-5 font-medium w-fit bg-[#0000ff] rounded-full lg:mt-10 flex items-center justify-center gap-2"
+              >
+                <span className="text-2xl font-bold">
+                  <IoAdd />
+                </span>
+                <span>Add more</span>
+                {/* <span className="text-2xl">
                 <TiArrowRightThick />
               </span> */}
-            </button>
+              </button>
+            </div>
           </form>
         </div>
       </div>
