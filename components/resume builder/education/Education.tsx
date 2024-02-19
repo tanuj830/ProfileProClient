@@ -35,7 +35,7 @@ const Education: React.FC<EducationProps> = ({
   const handleAddEducation = () => {};
 
   return (
-    <div className="h-full  w-full p-10">
+    <div className="h-full  w-full p-5 md:p-10">
       <div className="flex justify-center h-full flex-col gap-5">
         <div>
           <h2 className="text-[1.4rem] lg:text-[1.8rem] font-medium">
@@ -47,7 +47,10 @@ const Education: React.FC<EducationProps> = ({
           </small>
         </div>
         <div>
-          <PreviousAddedItems data={educationPageData} />
+          <PreviousAddedItems
+            setData={setEducationPageData}
+            data={educationPageData}
+          />
         </div>
         <div className="">
           <form onSubmit={(e) => handleSubmit(e)}>
