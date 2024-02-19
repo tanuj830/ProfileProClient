@@ -5,9 +5,7 @@ const ConvertToPDF = () => {
   return (
     <div>
       <button onClick={() => toPDF()}>Download PDF</button>
-      <div ref={targetRef}>
-        <Experience />
-      </div>
+      <div ref={targetRef}>{/* <Experience /> */}</div>
     </div>
   );
 };
