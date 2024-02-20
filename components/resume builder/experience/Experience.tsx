@@ -1,16 +1,20 @@
 "use Client";
 import React from "react";
-import Input from "./Input";
+import Input from "../Input";
 import { TiArrowRightThick } from "react-icons/ti";
+import PreviousAddedItems from "./PreviousAddedItems";
+import { IoAdd } from "react-icons/io5";
 
 interface ExperienceProps {
   setExperiencePageCompleted: Function;
   setExperiencePageData: Function;
+  experiencePageData: Array<any>;
 }
 
 const Contact: React.FC<ExperienceProps> = ({
   setExperiencePageCompleted,
   setExperiencePageData,
+  experiencePageData,
 }) => {
   const [title, setTitle] = React.useState("CEO");
   const [employer, setEmployer] = React.useState("Google");
@@ -18,6 +22,21 @@ const Contact: React.FC<ExperienceProps> = ({
   const [endDate, setEndDate] = React.useState("Aug 2023");
   const [city, setCity] = React.useState("Dehradun");
   const [disp, setDisp] = React.useState("Write your work experience");
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    setExperiencePageCompleted(true);
+    let data = {
+      title,
+      employer,
+      startDate,
+      endDate,
+      city,
+      disp,
+    };
+    setExperiencePageData([...experiencePageData, data]);
+  };
+
   return (
     <div className="h-full  w-full p-10">
       <div className="flex justify-center h-full flex-col gap-5">
@@ -29,23 +48,14 @@ const Contact: React.FC<ExperienceProps> = ({
             Start with your recent job.
           </small>
         </div>
+        <div>
+          <PreviousAddedItems
+            setData={setExperiencePageData}
+            data={experiencePageData}
+          />
+        </div>
         <div className="">
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              setExperiencePageCompleted(true);
-              let data = {
-                title,
-                employer,
-                startDate,
-                endDate,
-                city,
-                disp,
-              };
-              setExperiencePageData(data);
-              console.log(data);
-            }}
-          >
+          <form onSubmit={(e) => handleSubmit(e)}>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
               <Input setText={setTitle} label="Job title" placeholder="ceo" />
               <Input
@@ -72,12 +82,16 @@ const Contact: React.FC<ExperienceProps> = ({
             </div>
             <button
               type="submit"
-              className="px-10 py-5 font-medium w-fit bg-[#0000ff] rounded-full lg:mt-10 flex items-center justify-center gap-2"
+              // onClick={handleAddExperience}
+              className="px-10 py-5 mt-5 font-medium w-fit bg-[#0000ff] rounded-full lg:mt-10 flex items-center justify-center gap-2"
             >
-              <span>Compile</span>
+              <span className="text-2xl font-bold">
+                <IoAdd />
+              </span>
+              <span>Add more</span>
               {/* <span className="text-2xl">
-              <TiArrowRightThick />
-            </span> */}
+                <TiArrowRightThick />
+              </span> */}
             </button>
           </form>
         </div>

@@ -1,5 +1,5 @@
 import { usePDF } from "react-to-pdf";
-import Experience from "./Experience";
+import Experience from "./experience/Experience";
 const ConvertToPDF = () => {
   const { toPDF, targetRef } = usePDF({ filename: "page.pdf" });
   return (

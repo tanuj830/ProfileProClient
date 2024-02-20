@@ -1,7 +1,7 @@
 "use client";
-import Contact from "@/components/resume builder/Contact";
+import Contact from "@/components/resume builder/contact/Contact";
 import Education from "@/components/resume builder/education/Education";
-import Experience from "@/components/resume builder/Experience";
+import Experience from "@/components/resume builder/experience/Experience";
 import Preview from "@/components/resume builder/Preview";
 import React from "react";
 
@@ -27,14 +27,19 @@ const page = () => {
   const [experiencePageCompleted, setExperiencePageCompleted] =
     React.useState(false);
   const [experiencePageActive, setExperiencePageActive] = React.useState(false);
-  const [experiencePageData, setExperiencePageData] = React.useState({
-    title: "Founder",
-    employer: "ProfilePro.",
-    startDate: "Jan 2024",
-    endDate: "Present",
-    city: "Dehradun",
-    disp: "Building ProfilePro.: A web application which will help users to increase there productivity by 20 times. ",
-  });
+  const [experiencePageData, setExperiencePageData] = React.useState([] as any);
+  // {
+  //   title: "Founder",
+  //   employer: "ProfilePro.",
+  //   startDate: "Jan 2024",
+  //   endDate: "Present",
+  //   city: "Dehradun",
+  //   disp: "Building ProfilePro.: A web application which will help users to increase there productivity by 20 times. ",
+  // }
+  // 3: Project Details
+  const [projectPageCompleted, setProjectPageCompleted] = React.useState(false);
+  const [projectPageActive, setProjectPageActive] = React.useState(false);
+  const [projectPageData, setProjectPageData] = React.useState([] as any);
   const buttons = [
     {
       id: 1,
@@ -108,6 +113,7 @@ const page = () => {
           <Experience
             setExperiencePageCompleted={setExperiencePageCompleted}
             setExperiencePageData={setExperiencePageData}
+            experiencePageData={experiencePageData}
           />
         ) : null}
       </div>
@@ -116,6 +122,7 @@ const page = () => {
           contactPageData={contactPageData}
           educationPageData={educationPageData}
           experiencePageData={experiencePageData}
+          projectPageData={projectPageData}
         />
       </div>
     </div>

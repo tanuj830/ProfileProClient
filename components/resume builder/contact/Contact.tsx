@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Input from "./Input";
+import Input from "../Input";
 import { TiArrowRightThick } from "react-icons/ti";
 
 interface ContactProps {

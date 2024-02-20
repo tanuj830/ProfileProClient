@@ -1,6 +1,10 @@
 "use client";
 import React from "react";
 import { usePDF } from "react-to-pdf";
+import ProjectPreview from "./project/ProjectPreview";
+import ExperiencePreview from "./experience/ExperiencePreview";
+import EducationPreview from "./education/EducationPreview";
+import ContactPreview from "./contact/ContactPreview";
 
 interface PreviewProps {
   contactPageData: {
@@ -18,92 +22,42 @@ interface PreviewProps {
     school: string;
     grade: string;
   }>;
-  experiencePageData: {
+  experiencePageData: Array<{
     title: string;
     employer: string;
     startDate: string;
     endDate: string;
     city: string;
     disp: string;
-  };
+  }>;
+  projectPageData: Array<{
+    title: string;
+    skills: string;
+    startDate: string;
+    endDate: string;
+    disp: string;
+  }>;
 }
 
 const Preview: React.FC<PreviewProps> = ({
   contactPageData,
   educationPageData,
   experiencePageData,
+  projectPageData,
 }) => {
   const { toPDF, targetRef } = usePDF({ filename: "resume.pdf" });
-  console.log(educationPageData);
   return (
     <div className="w-full h-full relative ">
-      <div ref={targetRef} className="bg-white text-black w-full h-screen p-5">
+      <div
+        ref={targetRef}
+        className="bg-white text-black w-full h-screen py-5 px-10 flex justify-start flex-col "
+      >
         {Object.keys(contactPageData) ? (
           <>
-            <div>
-              {/* contact preview */}
-              <div className="flex flex-col ">
-                <span className="text-md">{contactPageData.name}</span>
-                <div>
-                  <span className="text-xs">{contactPageData.address}, </span>
-                  <span className="text-xs">{contactPageData.city}, </span>
-                  <span className="text-xs">{contactPageData.postalcode}</span>
-                </div>
-                <span className="text-xs">{contactPageData.phone}</span>
-                <span className="text-xs">{contactPageData.email}</span>
-                <a href={contactPageData.linkedin} className="text-xs">
-                  {contactPageData.linkedin}
-                </a>
-              </div>
-            </div>
-            {/* Education preview */}
-            <div>
-              <div className="mt-2">
-                <h2 className="bg-gray-200 py-1 rounded-sm text-xs w-full text-center font-bold uppercase">
-                  Education
-                </h2>
-              </div>
-              {educationPageData.length > 0
-                ? educationPageData.map((data) => (
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs">{data.year}</span>
-                      <span className="text-xs">{data.degree}</span>
-                      <span className="text-xs">{data.school}</span>
-                      <span className="text-xs">{data.grade}</span>
-                    </div>
-                  ))
-                : null}
-            </div>
-            {/* Experience preview */}
-            <div>
-              <div className="mt-2">
-                <h2 className="bg-gray-200 py-1 rounded-sm text-xs w-full text-center font-bold uppercase">
-                  Experience
-                </h2>
-              </div>
-              <div className="">
-                <div className="text-xs flex justify-between">
-                  <span className="font-semibold text-sm">
-                    {experiencePageData.employer}
-                  </span>
-                  <span className="font-semibold text-sm">
-                    {experiencePageData.startDate}
-                    {" - "}
-                    {experiencePageData.endDate}
-                  </span>
-                </div>
-                <div className="text-xs flex justify-between">
-                  <span className="italic text-xs">
-                    {experiencePageData.title}
-                  </span>
-                  <span className="italic text-xs">
-                    {experiencePageData.city}
-                  </span>
-                </div>
-
-                <span className="text-xs">{experiencePageData.disp}</span>
-              </div>
-            </div>
+            <ContactPreview contactPageData={contactPageData} />
+            <EducationPreview educationPageData={educationPageData} />
+            <ExperiencePreview experiencePageData={experiencePageData} />
+            <ProjectPreview projectPageData={projectPageData} />
           </>
         ) : null}
       </div>
