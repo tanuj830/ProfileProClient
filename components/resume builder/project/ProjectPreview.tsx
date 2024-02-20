@@ -22,13 +22,13 @@ const ProjectPreview: React.FC<ProjectPreviewProps> = ({ projectPageData }) => {
         ? projectPageData.map((data) => (
             <div className="py-1">
               <div className="text-xs flex justify-between py-[2px]">
-                <span className="italic text-xs">
+                <span className=" font-semibold text-sm">
                   {data.title}{" "}
                   {data.skills.length > 0 ? (
-                    <span className="">| {data.skills}</span>
+                    <span className="italic font-normal">| {data.skills}</span>
                   ) : null}
                 </span>
-                <span className="italic text-xs">
+                <span className="italic font-semibold text-sm">
                   {data.startDate} {data.endDate}
                 </span>
               </div>
