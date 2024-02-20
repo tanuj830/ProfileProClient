@@ -35,27 +35,29 @@ const PreviousAddedItems: React.FC<PreviousAddedItemsProps> = ({
             <div className="flex md:items-center  gap-1 md:gap-10 w-[90%] md:w-[80%]">
               <div className="flex flex-col  overflow-ellipsis	w-[25%] ">
                 <label className="text-[8px] text-gray-300 uppercase">
-                  Degree
+                  title
                 </label>
-                <h6 className="text-[12px] md:text-sm">{d.degree}</h6>
+                <h6 className="text-[12px] md:text-sm">{d.title}</h6>
               </div>
               <div className="flex flex-col overflow-hidden	w-[25%]">
                 <label className="text-[8px] text-gray-300 uppercase">
-                  Year
+                  skills
                 </label>
-                <h6 className="text-[12px] md:text-sm">{d.year}</h6>
+                <h6 className="text-[12px] md:text-sm">{d.skills}</h6>
               </div>
               <div className="flex flex-col  overflow-hidden	w-[25%]">
                 <label className="text-[8px] text-gray-300 uppercase">
-                  School
+                  description
                 </label>
-                <h6 className="text-[12px] md:text-sm">{d.school}</h6>
+                <h6 className="text-[12px] md:text-sm">{d.disp}</h6>
               </div>
               <div className="flex flex-col  overflow-hidden	w-[25%]">
                 <label className="text-[8px] text-gray-300 uppercase">
-                  Grade
+                  duration
                 </label>
-                <h6 className="text-[12px] md:text-sm">{d.grade}</h6>
+                <h6 className="text-[12px] md:text-sm">
+                  {d.startDate}-{d.endDate}
+                </h6>
               </div>
             </div>
             {/* buttons */}

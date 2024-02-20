@@ -3,6 +3,7 @@ import Contact from "@/components/resume builder/contact/Contact";
 import Education from "@/components/resume builder/education/Education";
 import Experience from "@/components/resume builder/experience/Experience";
 import Preview from "@/components/resume builder/Preview";
+import Project from "@/components/resume builder/project/Project";
 import React from "react";
 
 const page = () => {
@@ -69,14 +70,22 @@ const page = () => {
       setContactPageActive(true);
       setEducationPageActive(false);
       setExperiencePageActive(false);
+      setProjectPageActive(false);
     } else if (id === 2) {
       setContactPageActive(false);
       setEducationPageActive(true);
       setExperiencePageActive(false);
+      setProjectPageActive(false);
     } else if (id === 3) {
       setContactPageActive(false);
       setEducationPageActive(false);
       setExperiencePageActive(true);
+      setProjectPageActive(false);
+    } else if (id === 4) {
+      setContactPageActive(false);
+      setEducationPageActive(false);
+      setExperiencePageActive(false);
+      setProjectPageActive(true);
     }
   };
   return (
@@ -114,6 +123,13 @@ const page = () => {
             setExperiencePageCompleted={setExperiencePageCompleted}
             setExperiencePageData={setExperiencePageData}
             experiencePageData={experiencePageData}
+          />
+        ) : null}
+        {projectPageActive ? (
+          <Project
+            setProjectPageCompleted={setProjectPageCompleted}
+            setProjectPageData={setProjectPageData}
+            projectPageData={projectPageData}
           />
         ) : null}
       </div>

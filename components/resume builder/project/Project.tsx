@@ -4,33 +4,40 @@ import Input from "../Input";
 import { TiArrowRightThick } from "react-icons/ti";
 import { IoAdd } from "react-icons/io5";
 import PreviousAddedItems from "./PreviousAddedItems";
-interface EducationProps {
-  setEducationPageCompleted: Function;
-  setEducationPageData: Function;
-  educationPageData: Array<any>;
+interface ProjectProps {
+  setProjectPageCompleted: Function;
+  setProjectPageData: Function;
+  projectPageData: Array<{
+    title: string;
+    startDate: string;
+    endDate: string;
+    skills: string;
+    disp: string;
+  }>;
 }
 
-const Education: React.FC<EducationProps> = ({
-  setEducationPageCompleted,
-  setEducationPageData,
-  educationPageData,
+const Project: React.FC<ProjectProps> = ({
+  setProjectPageCompleted,
+  setProjectPageData,
+  projectPageData,
 }) => {
-  const [year, setYear] = React.useState("");
-  const [degree, setDegree] = React.useState("");
-  const [school, setSchool] = React.useState("");
-  const [grade, setGrade] = React.useState("");
-  const [educationInfo, setEducationInfo] = React.useState({});
+  const [title, setTitle] = React.useState("");
+  const [skills, setSkills] = React.useState("");
+  const [startDate, setStartDate] = React.useState("");
+  const [endDate, setEndDate] = React.useState("");
+  const [disp, setDisp] = React.useState("");
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    setEducationPageCompleted(true);
+    setProjectPageCompleted(true);
     let data = {
-      year,
-      degree,
-      school,
-      grade,
+      title,
+      skills,
+      startDate,
+      endDate,
+      disp,
     };
-    setEducationPageData([...educationPageData, data]);
+    setProjectPageData([...projectPageData, data]);
   };
   const handleAddEducation = () => {};
 
@@ -39,37 +46,46 @@ const Education: React.FC<EducationProps> = ({
       <div className="flex justify-center h-full flex-col gap-5">
         <div>
           <h2 className="text-[1.4rem] lg:text-[1.8rem] font-medium">
-            Please enter your{" "}
-            <span className="text-[#0000ff]"> Education </span> info
+            Please enter your <span className="text-[#0000ff]"> Project </span>{" "}
+            info
           </h2>
           <small className="text-md text-gray-400 leading-10">
-            It allows employers to see how you performed in your acadmeics.
+            Project tells about your skills.
           </small>
         </div>
         <div>
           <PreviousAddedItems
-            setData={setEducationPageData}
-            data={educationPageData}
+            setData={setProjectPageData}
+            data={projectPageData}
           />
         </div>
         <div className="">
           <form onSubmit={(e) => handleSubmit(e)}>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
               <Input
-                label="Start and End Year"
+                label="Title"
+                placeholder="ProfilePro"
+                setText={setTitle}
+              />
+              <Input
+                label="Skills"
+                placeholder="ReactJS, NextJS, JavaScript, TypeScript..."
+                setText={setSkills}
+              />
+              <Input
+                label="Start Year"
                 placeholder="2020-2024"
-                setText={setYear}
-              />
-              <Input label="Degree" placeholder="B-tech" setText={setDegree} />
-              <Input
-                label="Institute"
-                placeholder="Graphic Era Hill University"
-                setText={setSchool}
+                setText={setStartDate}
               />
               <Input
-                label="CGPA/ Marks"
-                placeholder="8.1/ 10"
-                setText={setGrade}
+                label="End Year"
+                placeholder="2020-2024"
+                setText={setEndDate}
+              />
+              <Input
+                label="Description"
+                placeholder="Explain your project"
+                setText={setDisp}
               />
             </div>
             <div className="flex items-center gap-5">
@@ -94,4 +110,4 @@ const Education: React.FC<EducationProps> = ({
   );
 };
 
-export default Education;
+export default Project;

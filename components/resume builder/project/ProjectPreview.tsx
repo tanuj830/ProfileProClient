@@ -15,7 +15,7 @@ const ProjectPreview: React.FC<ProjectPreviewProps> = ({ projectPageData }) => {
     <div>
       <div className="mt-2">
         <h2 className="bg-gray-200 py-1 rounded-sm text-xs w-full text-center font-bold uppercase">
-          Experience
+          Projects
         </h2>
       </div>
       {projectPageData.length > 0

@@ -3,10 +3,11 @@ import { IoIosClose } from "react-icons/io";
 
 interface EditModalProps {
   dataObject: {
-    year: string;
-    school: string;
-    degree: string;
-    grade: string;
+    title: string;
+    skills: string;
+    startDate: string;
+    endDate: string;
+    disp: string;
   };
   mainDataArray: Array<any>;
   setShowEditModal: Function;
@@ -17,22 +18,23 @@ const EditModal: React.FC<EditModalProps> = ({
   mainDataArray,
   setShowEditModal,
 }) => {
-  const [year, setYear] = React.useState(dataObject.year);
-  const [degree, setDegree] = React.useState(dataObject.degree);
-  const [school, setSchool] = React.useState(dataObject.school);
-  const [grade, setGrade] = React.useState(dataObject.grade);
+  const [title, setTitle] = React.useState(dataObject.title);
+  const [startDate, setStartDate] = React.useState(dataObject.startDate);
+  const [endDate, setEndDate] = React.useState(dataObject.endDate);
+  const [skills, setSkills] = React.useState(dataObject.skills);
+  const [disp, setDisp] = React.useState(dataObject.disp);
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
 
     for (var i = 0; i < mainDataArray.length; i++) {
       if (
-        mainDataArray[i].year === dataObject.year &&
-        mainDataArray[i].degree === dataObject.degree &&
-        mainDataArray[i].school === dataObject.school &&
-        mainDataArray[i].grade === dataObject.grade
+        mainDataArray[i].title === dataObject.title &&
+        mainDataArray[i].startDate === dataObject.startDate &&
+        mainDataArray[i].skills === dataObject.skills &&
+        mainDataArray[i].disp === dataObject.disp
       ) {
-        mainDataArray[i] = { year, degree, school, grade };
+        mainDataArray[i] = { title, startDate, skills, disp };
       }
     }
 
@@ -53,48 +55,60 @@ const EditModal: React.FC<EditModalProps> = ({
             <div className="form flex flex-col gap-3">
               <div className="flex flex-col gap-1">
                 <label className="text-[11px] text-gray-300 uppercase">
-                  Degree
+                  title
                 </label>
                 <input
                   required
-                  value={degree}
-                  onChange={(e) => setDegree(e.target.value)}
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
                   className="bg-[#1A1A1C] rounded-2xl text-xs outline-none hover:outline-[#0000ff] py-3 px-3 text-gray-400"
                   type="text"
                 />
               </div>
               <div className="flex flex-col gap-1">
                 <label className="text-[11px] text-gray-300 uppercase">
-                  Year{" "}
+                  skills{" "}
                 </label>
                 <input
                   required
-                  value={year}
-                  onChange={(e) => setYear(e.target.value)}
+                  value={skills}
+                  onChange={(e) => setSkills(e.target.value)}
                   className="bg-[#1A1A1C] rounded-2xl text-xs outline-none hover:outline-[#0000ff] py-3 px-3 text-gray-400"
                   type="text"
                 />
               </div>
               <div className="flex flex-col gap-1">
                 <label className="text-[11px] text-gray-300 uppercase">
-                  school{" "}
+                  start-date{" "}
                 </label>
                 <input
                   required
-                  value={school}
-                  onChange={(e) => setSchool(e.target.value)}
+                  value={startDate}
+                  onChange={(e) => setStartDate(e.target.value)}
                   className="bg-[#1A1A1C] rounded-2xl text-xs outline-none hover:outline-[#0000ff] py-3 px-3 text-gray-400"
                   type="text"
                 />
               </div>
               <div className="flex flex-col gap-1">
                 <label className="text-[11px] text-gray-300 uppercase">
-                  grade{" "}
+                  end-date{" "}
                 </label>
                 <input
                   required
-                  value={grade}
-                  onChange={(e) => setGrade(e.target.value)}
+                  value={endDate}
+                  onChange={(e) => setEndDate(e.target.value)}
+                  className="bg-[#1A1A1C] rounded-2xl text-xs outline-none hover:outline-[#0000ff] py-3 px-3 text-gray-400"
+                  type="text"
+                />
+              </div>
+              <div className="flex flex-col gap-1">
+                <label className="text-[11px] text-gray-300 uppercase">
+                  description{" "}
+                </label>
+                <input
+                  required
+                  value={disp}
+                  onChange={(e) => setDisp(e.target.value)}
                   className="bg-[#1A1A1C] rounded-2xl text-xs outline-none hover:outline-[#0000ff] py-3 px-3 text-gray-400"
                   type="text"
                 />
