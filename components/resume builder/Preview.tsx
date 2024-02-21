@@ -63,7 +63,7 @@ const Preview: React.FC<PreviewProps> = ({
       </div>
       <button
         onClick={() => toPDF()}
-        className="px-10 py-5 font-medium w-fit bg-[#0000ff] rounded-full mt-4 absolute bottom-5 right-5"
+        className="px-10 py-5 font-medium w-fit btnBg rounded-full mt-4 absolute bottom-5 right-5"
       >
         Download Resume
       </button>

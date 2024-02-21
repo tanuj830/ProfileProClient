@@ -92,9 +92,9 @@ const Project: React.FC<ProjectProps> = ({
               <button
                 type="submit"
                 onClick={handleAddEducation}
-                className="px-10 py-5 mt-5 font-medium w-fit bg-[#0000ff] rounded-full lg:mt-10 flex items-center justify-center gap-2"
+                className=" py-5 mt-5 font-medium w-fit  lg:mt-10 flex items-center justify-center gap-3"
               >
-                <span className="text-2xl font-bold">
+                <span className="text-2xl font-bold p-1  border border-gray-600 rounded-full">
                   <IoAdd />
                 </span>
                 <span>Add more</span>
