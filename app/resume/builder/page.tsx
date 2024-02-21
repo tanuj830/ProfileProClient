@@ -88,6 +88,10 @@ const page = () => {
       setProjectPageActive(true);
     }
   };
+
+  window.onbeforeunload = function () {
+    return "Are you really want to perform the action? \n This action will reset your all states.";
+  };
   return (
     <div className="flex flex-col-reverse lg:flex-row gap-5">
       <div className="flex  flex-col w-full lg:w-[50%]">
