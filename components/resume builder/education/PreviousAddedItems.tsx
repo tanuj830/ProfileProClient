@@ -27,6 +27,7 @@ const PreviousAddedItems: React.FC<PreviousAddedItemsProps> = ({
           dataObject={editData}
           mainDataArray={data}
           setShowEditModal={setShowEditModal}
+          setData={setData}
         />
       ) : null}
       <div className="flex flex-col gap-4">

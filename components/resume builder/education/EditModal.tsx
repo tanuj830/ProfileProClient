@@ -10,12 +10,14 @@ interface EditModalProps {
   };
   mainDataArray: Array<any>;
   setShowEditModal: Function;
+  setData: Function;
 }
 
 const EditModal: React.FC<EditModalProps> = ({
   dataObject,
   mainDataArray,
   setShowEditModal,
+  setData,
 }) => {
   const [year, setYear] = React.useState(dataObject.year);
   const [degree, setDegree] = React.useState(dataObject.degree);
@@ -26,14 +28,9 @@ const EditModal: React.FC<EditModalProps> = ({
     e.preventDefault();
 
     for (var i = 0; i < mainDataArray.length; i++) {
-      if (
-        mainDataArray[i].year === dataObject.year &&
-        mainDataArray[i].degree === dataObject.degree &&
-        mainDataArray[i].school === dataObject.school &&
-        mainDataArray[i].grade === dataObject.grade
-      ) {
-        mainDataArray[i] = { year, degree, school, grade };
-      }
+      var dataToUpdate = { year, degree, school, grade };
+      var result = mainDataArray.filter((item) => item != dataObject);
+      setData([...result, dataToUpdate]);
     }
 
     setShowEditModal(false); // closing model

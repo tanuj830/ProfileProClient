@@ -23,12 +23,29 @@ const page = () => {
   const [educationPageCompleted, setEducationPageCompleted] =
     React.useState(false);
   const [educationPageActive, setEducationPageActive] = React.useState(false);
-  const [educationPageData, setEducationPageData] = React.useState([] as any);
+  const [educationPageData, setEducationPageData] = React.useState([
+    {
+      year: "2020-2024",
+      degree: "Bachelor of Science in Computer Science",
+      school: "Graphic Era Hill University",
+      grade: "8.1/10",
+    },
+  ] as any);
+
   // 3: Experience Details
   const [experiencePageCompleted, setExperiencePageCompleted] =
     React.useState(false);
   const [experiencePageActive, setExperiencePageActive] = React.useState(false);
-  const [experiencePageData, setExperiencePageData] = React.useState([] as any);
+  const [experiencePageData, setExperiencePageData] = React.useState([
+    {
+      title: "Web Developer Intern",
+      employer: "Visit Uttarakhand",
+      startDate: "Mar 2023",
+      endDate: "May 2023",
+      city: "Dehradun",
+      disp: "Build and optimized the front-end of a web application using ReactJS and NextJS framework; implemented performance enhancements that reduced page load time by 40 percent.",
+    },
+  ] as any);
   // {
   //   title: "Founder",
   //   employer: "ProfilePro.",
@@ -40,7 +57,15 @@ const page = () => {
   // 3: Project Details
   const [projectPageCompleted, setProjectPageCompleted] = React.useState(false);
   const [projectPageActive, setProjectPageActive] = React.useState(false);
-  const [projectPageData, setProjectPageData] = React.useState([] as any);
+  const [projectPageData, setProjectPageData] = React.useState([
+    {
+      title: "Talkify",
+      skills: "ReactJS, NextJS, NodeJS",
+      startDate: "Dec 2023",
+      endDate: "Dec 2023",
+      disp: "Executed and led the development of Talkify, a revolutionary web application that combined advanced language      capabilities and cutting-edge speech recognition technology, driving a 40 percent boost in user engagement and reducing      customer support issues by 25 percent.",
+    },
+  ] as any);
   const buttons = [
     {
       id: 1,
@@ -88,11 +113,11 @@ const page = () => {
       setProjectPageActive(true);
     }
   };
-  if (window !== undefined) {
-    window.onbeforeunload = function () {
-      return "Are you really want to perform the action? \n This action will reset your all states.";
-    };
-  }
+  // if (window !== undefined) {
+  //   window.onbeforeunload = function () {
+  //     return "Are you really want to perform the action? \n This action will reset your all states.";
+  //   };
+  // }
   return (
     <div className="flex flex-col-reverse lg:flex-row gap-5">
       <div className="flex  flex-col w-full lg:w-[50%]">

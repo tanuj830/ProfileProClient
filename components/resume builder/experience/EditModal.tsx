@@ -12,12 +12,14 @@ interface EditModalProps {
   };
   mainDataArray: Array<any>;
   setShowEditModal: Function;
+  setData: Function;
 }
 
 const EditModal: React.FC<EditModalProps> = ({
   dataObject,
   mainDataArray,
   setShowEditModal,
+  setData,
 }) => {
   const [title, setTitle] = React.useState(dataObject.title);
   const [employer, setEmployer] = React.useState(dataObject.employer);
@@ -30,16 +32,9 @@ const EditModal: React.FC<EditModalProps> = ({
     e.preventDefault();
 
     for (var i = 0; i < mainDataArray.length; i++) {
-      if (
-        mainDataArray[i].title === dataObject.title &&
-        mainDataArray[i].employer === dataObject.employer &&
-        mainDataArray[i].startDate === dataObject.startDate &&
-        mainDataArray[i].endDate === dataObject.endDate &&
-        mainDataArray[i].city === dataObject.city &&
-        mainDataArray[i].disp === dataObject.disp
-      ) {
-        mainDataArray[i] = { title, employer, startDate, endDate, city, disp };
-      }
+      var dataToUpdate = { title, employer, startDate, endDate, disp, city };
+      var result = mainDataArray.filter((item) => item != dataObject);
+      setData([...result, dataToUpdate]);
     }
 
     setShowEditModal(false); // closing model

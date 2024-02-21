@@ -11,12 +11,14 @@ interface EditModalProps {
   };
   mainDataArray: Array<any>;
   setShowEditModal: Function;
+  setData: Function;
 }
 
 const EditModal: React.FC<EditModalProps> = ({
   dataObject,
   mainDataArray,
   setShowEditModal,
+  setData,
 }) => {
   const [title, setTitle] = React.useState(dataObject.title);
   const [startDate, setStartDate] = React.useState(dataObject.startDate);
@@ -26,16 +28,12 @@ const EditModal: React.FC<EditModalProps> = ({
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-
     for (var i = 0; i < mainDataArray.length; i++) {
-      if (
-        mainDataArray[i].title === dataObject.title &&
-        mainDataArray[i].startDate === dataObject.startDate &&
-        mainDataArray[i].skills === dataObject.skills &&
-        mainDataArray[i].disp === dataObject.disp
-      ) {
-        mainDataArray[i] = { title, startDate, skills, disp };
-      }
+      var dataToUpdate = { title, skills, startDate, endDate, disp };
+
+      var result = mainDataArray.filter((item) => item != dataObject);
+
+      setData([...result, dataToUpdate]);
     }
 
     setShowEditModal(false); // closing model

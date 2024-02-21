@@ -27,35 +27,36 @@ const PreviousAddedItems: React.FC<PreviousAddedItemsProps> = ({
           dataObject={editData}
           mainDataArray={data}
           setShowEditModal={setShowEditModal}
+          setData={setData}
         />
       ) : null}
       <div className="flex flex-col gap-4">
         {data.map((d) => (
           <div className="bg-[#1A1A1C] p-5 rounded-xl flex gap-5 items-center justify-between">
-            <div className="flex md:items-center  gap-1 md:gap-10 w-[90%] md:w-[80%]">
-              <div className="flex flex-col  overflow-ellipsis	w-[25%] ">
+            <div className="flex md:items-center  gap-1 md:gap-10 h-[7vh] w-[90%] md:w-[80%]">
+              <div className="flex flex-col  overflow-hidden h-full	w-[25%] ">
                 <label className="text-[8px] text-gray-300 uppercase">
                   title
                 </label>
-                <h6 className="text-[12px] md:text-sm">{d.title}</h6>
+                <h6 className="text-[12px] ">{d.title}</h6>
               </div>
-              <div className="flex flex-col overflow-hidden	w-[25%]">
+              <div className="flex flex-col overflow-hidden h-full	w-[25%]">
                 <label className="text-[8px] text-gray-300 uppercase">
                   skills
                 </label>
-                <h6 className="text-[12px] md:text-sm">{d.skills}</h6>
+                <h6 className="text-[12px] ">{d.skills}</h6>
               </div>
-              <div className="flex flex-col  overflow-hidden	w-[25%]">
+              <div className="flex flex-col  overflow-hidden h-full	 w-[25%]">
                 <label className="text-[8px] text-gray-300 uppercase">
                   description
                 </label>
-                <h6 className="text-[12px] md:text-sm">{d.disp}</h6>
+                <h6 className="text-[12px] ">{d.disp}</h6>
               </div>
-              <div className="flex flex-col  overflow-hidden	w-[25%]">
+              <div className="flex flex-col  overflow-hidden h-full	w-[25%]">
                 <label className="text-[8px] text-gray-300 uppercase">
                   duration
                 </label>
-                <h6 className="text-[12px] md:text-sm">
+                <h6 className="text-[12px] ">
                   {d.startDate}-{d.endDate}
                 </h6>
               </div>
