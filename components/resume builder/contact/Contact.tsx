@@ -81,7 +81,7 @@ const Contact: React.FC<ContactProps> = ({
             </div>
             <button
               type="submit"
-              className="px-10 py5 mt-5 font-medium w-fit btnBg rounded-full lg:mt-10 flex items-center justify-center gap-2"
+              className="px-10 py-5 mt-5 font-medium w-fit btnBg rounded-full lg:mt-10 flex items-center justify-center gap-2"
             >
               <span>Compile</span>
               {/* <span className="text-2xl">
