@@ -87,7 +87,7 @@ const Contact: React.FC<ContactProps> = ({
               {/* <span className="text-2xl">
                 <TiArrowRightThick />
               </span> */}
-            </button
+            </button>
           </form>
         </div>
       </div>
