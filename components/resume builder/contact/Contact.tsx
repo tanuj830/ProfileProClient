@@ -76,7 +76,7 @@ const Contact: React.FC<ContactProps> = ({
               <Input
                 label="Linked-in"
                 placeholder="Your Linked-in url"
-                setText={setLinkedin}
+                setText={setLinkedi}
               />
             </div>
             <button
