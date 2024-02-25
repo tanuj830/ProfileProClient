@@ -57,7 +57,7 @@ const Contact: React.FC<ContactProps> = ({
                 placeholder="Enter a Location"
                 setText={setAddress}
               />
-              <Input label="City" placeholder="Dehradun" setText={setCity} />
+              <Input label="City" lder="Dehradun" setText={setCity} />
               <Input
                 label="Postal Code"
                 placeholder="248002"
