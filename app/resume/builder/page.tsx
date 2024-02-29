@@ -4,9 +4,8 @@ import Education from "@/components/resume builder/education/Education";
 import Experience from "@/components/resume builder/experience/Experience";
 import Preview from "@/components/resume builder/Preview";
 import Project from "@/components/resume builder/project/Project";
-import React, { useContext } from "react";
-// import Home from "../../../app/page";
-import { useAppContext } from "../../../app/layout";
+import React from "react";
+
 const page = () => {
   // 1: Contact Details
   const [contactPageCompleted, setContactPageCompleted] = React.useState(false);
@@ -119,11 +118,6 @@ const page = () => {
   //     return "Are you really want to perform the action? \n This action will reset your all states.";
   //   };
   // }
-
-  const { strr, setStrr } = useAppContext();
-  console.log(strr);
-  setStrr("green");
-  console.log(strr);
   return (
     <div className="flex flex-col-reverse lg:flex-row gap-5">
       <div className="flex  flex-col w-full lg:w-[50%]">
@@ -141,7 +135,6 @@ const page = () => {
             </div>
           ))}
         </div>
-        <div className="bg-yellow-200 text-black">{strr}</div>
         {contactPageActive ? (
           <Contact
             setContactPageCompleted={setContactPageCompleted}
