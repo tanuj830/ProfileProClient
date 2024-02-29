@@ -11,12 +11,20 @@ import React from "react";
 import { RxCross2 } from "react-icons/rx";
 import { RiMenu4Line } from "react-icons/ri";
 import { usePathname } from "next/navigation";
+import {
+  LoginLink,
+  LogoutLink,
+  RegisterLink,
+  useKindeBrowserClient,
+} from "@kinde-oss/kinde-auth-nextjs";
+import Image from "next/image";
+import { RiMenu3Line } from "react-icons/ri";
 
 const Header = () => {
   const path = usePathname();
   const [showMenu, setShowMenu] = React.useState(false);
   const [showTopBanner, setShowTopBanner] = React.useState(false);
-
+  const { isAuthenticated } = useKindeBrowserClient();
   const handleClick = () => {
     setShowMenu(!showMenu);
   };
@@ -199,62 +207,31 @@ const Header = () => {
             >
               Projects
             </Link>
-            <Link
-              className={`brightness-200 flex items-center h-full text-xl  ${
-                path == "/blog"
-                  ? "text-indigo-800  brightness-200 border-b-2 border-indigo-800 font-semibold"
-                  : "text-inherit"
-              }`}
-              href="/blog"
-            >
-              Blog
-            </Link>
-            <Link
-              className={`brightness-200 flex items-center h-full text-xl   ${
-                path == "/services"
-                  ? "text-indigo-800  brightness-200 border-b-2 border-indigo-800 font-semibold"
-                  : "text-inherit"
-              }`}
-              href="/services"
-            >
-              <span className="flex justify-center items-center">Services</span>
-            </Link>
-            <Link
-              className={`brightness-200 flex items-center  h-full text-xl  ${
-                path == "/fun"
-                  ? "text-indigo-800  brightness-200 border-b-2 border-indigo-800 font-semibold"
-                  : "text-inherit"
-              }`}
-              href="/fun"
-            >
-              Chill Zone
-            </Link>
-          </div>
-          <div className="flex  items-center h-full md:gap-4  ">
-            <Link
-              className="hover:scale-125 hover:text-white transition-all duration-300 text-2xl"
-              href="https://github.com/tanuj830"
-            >
-              <AiFillGithub />
-            </Link>
-            <Link
-              className="hover:scale-125 hover:text-white transition-all duration-300 text-2xl"
-              href="https://www.linkedin.com/in/tanuj-bhatt-85a2511b5/"
-            >
-              <AiFillLinkedin />
-            </Link>
-            <Link
-              className="hover:scale-125 hover:text-white transition-all duration-300 text-2xl"
-              href="https://leetcode.com/tanujdotcpp/"
-            >
-              <SiLeetcode />
-            </Link>
-            <Link
-              className="hover:scale-125 hover:text-white transition-all duration-300 text-2xl"
-              href="https://www.instagram.com/aka_tanuj/"
-            >
-              <AiFillInstagram />
-            </Link>
+            {isAuthenticated ? (
+              <div>
+                <LogoutLink
+                  postLogoutRedirectURL="/"
+                  className="bg-[#0000ff] py-3 px-6 rounded-full"
+                >
+                  Sign out
+                </LogoutLink>
+              </div>
+            ) : (
+              <div className="flex items-center gap-2">
+                <LoginLink
+                  postLoginRedirectURL="/resume"
+                  className="bg-[#0000ff] py-3 px-6 rounded-full"
+                >
+                  Sign in
+                </LoginLink>
+                <RegisterLink
+                  postLoginRedirectURL="/resume"
+                  className="bg-[#0000ff] py-3 px-6 rounded-full"
+                >
+                  Sign up
+                </RegisterLink>
+              </div>
+            )}
           </div>
         </div>
       </div>
